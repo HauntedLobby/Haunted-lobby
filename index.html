@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Haunted Hotel – Todos os episódios online</title>
+<meta name="description" content="Site de fã para fãs de Haunted Hotel. Assista aos episódios, dublados ou legendados.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗝️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --ink:#0c0709; --wine:#3b0f1c; --wine2:#220a12; --brass:#c8a45a; --brass-d:#7d6330;
+  --bone:#eadfca; --muted:#a8977f; --neon:#ff5f86;
+  --serif:"IM Fell English",Georgia,serif; --disp:"Cinzel",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;color:var(--bone);font:19px/1.65 var(--serif);
+  background:
+    radial-gradient(ellipse at 50% -10%,rgba(200,164,90,.16),transparent 55%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 2px,transparent 2px 46px),
+    linear-gradient(var(--wine2),var(--ink) 70%);
+  background-attachment:fixed;
+}
+#dust{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+header,main,footer{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 20px}
+header{text-align:center;padding-top:22px}
+body.watching header{display:none}
+.logo img,.poster img{-webkit-user-drag:none;user-select:none}
+.sign{
+  display:inline-block;font:700 clamp(2rem,7vw,3.8rem)/1.1 var(--disp);letter-spacing:.06em;
+  color:#ffd9e1;padding:.25em .7em;border:2px solid var(--neon);border-radius:14px;
+  text-shadow:0 0 6px var(--neon),0 0 22px var(--neon),0 0 48px rgba(255,95,134,.6);
+  box-shadow:0 0 14px rgba(255,95,134,.5),inset 0 0 14px rgba(255,95,134,.35);
+  text-decoration:none;
+}
+.sign .fl{animation:flick 7s infinite}
+@keyframes flick{0%,18%,22%,62%,64%,100%{opacity:1}20%,63%{opacity:.25}21%{opacity:.8}}
+.tag{color:var(--muted);font-style:italic;margin:8px 0 0;font-size:.95rem}
+h2{font:500 1.5rem var(--disp);color:var(--brass);margin:44px 0 6px;text-align:center}
+.sub{text-align:center;color:var(--muted);margin:0 0 28px}
+
+.hall{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:34px 22px;padding:14px 0 10px;list-style:none;margin:0}
+#hall{padding-bottom:18px}
+.door{display:block;text-decoration:none;color:inherit;perspective:700px;outline:none}
+.door .leaf{
+  position:relative;aspect-ratio:3/5;border-radius:80px 80px 6px 6px;transform-origin:left center;
+  border:3px solid var(--brass-d);
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.35),transparent 18%,transparent 82%,rgba(0,0,0,.35)),
+    linear-gradient(#521426,var(--wine));
+  box-shadow:0 10px 24px rgba(0,0,0,.6),inset 0 0 0 8px rgba(0,0,0,.18);
+  transition:transform .55s cubic-bezier(.3,.7,.2,1),box-shadow .55s;
+}
+.door .leaf::before{
+  content:"";position:absolute;inset:34% 16% 12%;border:2px solid rgba(200,164,90,.3);border-radius:4px;
+}
+.door .knob{position:absolute;right:12%;top:56%;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f3dd9b,var(--brass-d))}
+.door .plate{
+  position:absolute;left:50%;top:15%;transform:translateX(-50%);min-width:58px;text-align:center;
+  font:700 1.05rem var(--disp);color:#2a1a06;background:linear-gradient(#e6c777,var(--brass));
+  padding:2px 10px;border-radius:4px;box-shadow:0 1px 0 #fff4 inset,0 2px 4px #0008;
+}
+.door:hover .leaf,.door:focus-visible .leaf{transform:rotateY(-38deg);box-shadow:-14px 10px 30px rgba(0,0,0,.7),0 0 40px rgba(255,200,120,.25)}
+.door:focus-visible .plate{outline:2px solid var(--bone);outline-offset:3px}
+.door .name{display:block;text-align:center;margin-top:12px;line-height:1.3}
+.badges{display:flex;justify-content:center;gap:6px;margin-top:6px}
+.b{font-size:.8rem;border:1px solid var(--brass-d);color:var(--brass);border-radius:99px;padding:0 9px}
+.b.off{opacity:.35;text-decoration:line-through}
+
+.logo{display:inline-block;line-height:0}
+.logo img{display:block;width:clamp(140px,20vw,250px);height:auto;margin-top:clamp(-14px,-1.26vw,-8px);animation:glow 5s ease-in-out infinite;
+  filter:drop-shadow(0 0 8px rgba(255,170,90,.45)) drop-shadow(0 0 22px rgba(255,95,134,.35))}
+@keyframes glow{
+  0%,100%{filter:drop-shadow(0 0 8px rgba(255,170,90,.45)) drop-shadow(0 0 22px rgba(255,95,134,.35))}
+  50%{filter:drop-shadow(0 0 14px rgba(255,190,110,.85)) drop-shadow(0 0 42px rgba(255,95,134,.65))}
+  72%,76%{filter:drop-shadow(0 0 5px rgba(255,170,90,.25)) drop-shadow(0 0 12px rgba(255,95,134,.2))}
+  74%{filter:drop-shadow(0 0 12px rgba(255,190,110,.7)) drop-shadow(0 0 32px rgba(255,95,134,.5))}
+}
+.home-top{display:grid;grid-template-columns:minmax(220px,360px) 1fr;gap:30px;align-items:stretch;margin-top:20px}
+.home-top .poster{margin:0}
+.home-top .poster img{display:block;width:100%;max-height:none;height:auto}
+.home-top .poster .art{max-width:none}
+.panel{display:flex;flex-direction:column;background:rgba(12,7,9,.55);border:1px solid rgba(200,164,90,.25);border-radius:12px;padding:2px 24px 22px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.panel h2{margin-top:18px}
+.panel #chooseSeason{margin-top:auto;padding-top:16px}
+.about-carousel{display:grid;grid-template-columns:32px minmax(0,1fr) 32px;align-items:start;gap:8px}
+.about-carousel h2{margin:18px 0 6px}
+.about-arrow{width:32px;height:36px;margin-top:18px;padding:0;border:1px solid var(--brass-d);border-radius:8px;background:rgba(0,0,0,.25);color:var(--brass);font:1.3rem/1 var(--disp);cursor:pointer}
+.about-arrow:not(:disabled):hover{border-color:var(--brass);background:rgba(200,164,90,.14)}
+.about-arrow:disabled{visibility:hidden}
+.about{padding-top:30px;font-size:.92rem;line-height:1.55}
+.about p{margin:0 0 .8em}
+.panel .floors{padding-bottom:0;width:100%}
+.panel .sub{margin-bottom:14px}
+.panel .floor{padding:14px 12px}
+.panel .floor .num{width:46px;height:46px;font-size:1.3rem}
+.panel .floor .nm{margin-top:4px;font-size:1.05rem}
+@media(max-width:760px){body{background-attachment:scroll}.home-top{grid-template-columns:1fr}.home-top .poster{max-width:320px;margin:0 auto}.panel{padding:8px 18px 24px}}
+.poster{margin:34px auto 0;text-align:center}
+.poster img{max-width:100%;max-height:460px;border:1px solid var(--brass-d);border-radius:12px;box-shadow:0 0 50px rgba(255,95,134,.2),0 18px 40px rgba(0,0,0,.7)}
+.poster .art{max-width:560px;margin:0 auto;border:1px solid var(--brass-d);border-radius:12px;overflow:hidden;line-height:0;box-shadow:0 0 50px rgba(255,95,134,.2),0 18px 40px rgba(0,0,0,.7)}
+.poster .art svg{width:100%;height:auto}
+.poster figcaption{color:var(--muted);font-size:.85rem;margin-top:8px}
+.poster figcaption:empty{display:none}
+.floors{list-style:none;margin:0 auto;padding:0 0 50px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;max-width:640px}
+.floor{display:flex;flex-direction:column;align-items:center;gap:4px;padding:22px 14px;border:2px solid var(--brass-d);border-radius:12px;background:linear-gradient(#3b0f1c,#220a12);color:inherit;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.5);transition:border-color .2s,box-shadow .2s}
+a.floor:hover,a.floor:focus-visible{border-color:var(--brass);box-shadow:0 0 28px rgba(200,164,90,.3);outline:none}
+.floor .num{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;font:700 1.6rem var(--disp);color:#2a1a06;background:radial-gradient(circle at 35% 30%,#f3dd9b,var(--brass) 60%,var(--brass-d));box-shadow:0 0 0 4px #000,0 0 18px rgba(255,200,120,.45)}
+.floor .nm{font:500 1.15rem var(--disp);margin-top:8px}
+.floor .ct{color:var(--muted);font-size:.9rem}
+.floor.off{opacity:.45}
+#ep{display:none;padding-bottom:10px}
+.room{text-align:center;color:var(--brass);font:500 1rem var(--disp);margin:34px 0 0}
+.ep-title{font:700 clamp(1.6rem,5vw,2.4rem)/1.2 var(--disp);text-align:center;margin:6px 0 22px}
+.hosting-notice{max-width:760px;margin:0 auto 20px;padding:12px 16px;border:1px solid rgba(200,164,90,.35);border-left:3px solid var(--brass);border-radius:8px;background:rgba(12,7,9,.55);color:var(--muted);font-size:.9rem;line-height:1.5;text-align:center}
+.lang{display:flex;justify-content:center;gap:10px;margin-bottom:16px}
+.lang button,.nav button,.nav a,.key{
+  font:inherit;font-size:1rem;color:var(--bone);background:rgba(0,0,0,.35);cursor:pointer;text-decoration:none;
+  border:1.5px solid var(--brass-d);border-radius:8px;padding:8px 18px;transition:background .2s,border-color .2s;
+}
+.lang button[aria-pressed="true"]{background:var(--brass);color:#24160a;border-color:var(--brass);font-weight:bold}
+button:disabled{opacity:.35;cursor:not-allowed}
+.lang button:not(:disabled):not([aria-pressed="true"]):hover,.nav button:not(:disabled):hover,.key:hover{border-color:var(--brass);background:rgba(200,164,90,.14)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+.screen{
+  position:relative;aspect-ratio:16/9;background:#000;border:3px solid var(--brass-d);border-radius:8px;
+  box-shadow:0 0 50px rgba(255,95,134,.18),0 18px 40px rgba(0,0,0,.7);overflow:hidden;
+}
+.screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:var(--muted);font-style:italic}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin:18px 0 8px}
+.nav #prev{justify-self:start}
+.nav #next{justify-self:end}
+.nav .key{white-space:nowrap}
+.syn{max-width:68ch;margin:40px auto 0}
+.syn h3{font:500 1.2rem var(--disp);color:var(--brass);margin:0 0 6px}
+.syn p{margin:0 0 1em}
+.back{text-align:center;margin-top:20px}
+.back .key{display:inline-flex;align-items:center;min-height:45px}
+footer{text-align:center;color:var(--muted);font-size:.9rem;margin-top:24px;padding:24px 20px 40px;border-top:1px solid rgba(200,164,90,.2)}
+@media(max-width:520px){.nav{grid-template-columns:1fr}.nav>*{width:100%;text-align:center}.nav #prev,.nav #next{justify-self:stretch}}
+@media(prefers-reduced-motion:reduce){.logo img{animation:none}.sign .fl{animation:none}.door .leaf{transition:none}html{scroll-behavior:auto}}
+.deco{position:fixed;pointer-events:none;z-index:0;height:auto}
+.web-l,.web-r{top:-14px;width:clamp(110px,22vw,280px)}
+.web-l{left:-14px}
+.web-r{right:-14px;transform:scaleX(-1)}
+.web-l .spider-hit-area{pointer-events:all;cursor:default}
+.jarbon-tip{position:fixed;z-index:5;max-width:180px;padding:7px 12px;border:1px solid var(--brass);border-radius:8px;background:rgba(12,7,9,.95);box-shadow:0 6px 18px rgba(0,0,0,.45);color:var(--bone);font:16px/1.3 var(--serif);pointer-events:none;opacity:0;visibility:hidden;transition:opacity .12s}
+.jarbon-tip.visible{opacity:1;visibility:visible}
+.spider{transform-origin:72px 0;animation:swing 6s ease-in-out infinite}
+@keyframes swing{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@media(prefers-reduced-motion:reduce){.spider{animation:none}}
+@media(max-width:760px){
+  body{font-size:16px;background-attachment:scroll}
+  header,main,footer{padding-right:16px;padding-left:16px}
+  header{padding-top:14px}
+  .logo img{width:clamp(128px,42vw,190px);margin-top:-8px}
+  .tag{max-width:34rem;margin:4px auto 0;font-size:.88rem;line-height:1.45}
+  h2{font-size:clamp(1.15rem,5vw,1.4rem);margin:30px 0 6px}
+  .sub{font-size:.9rem;margin-bottom:18px}
+  .home-top{grid-template-columns:minmax(0,1fr);gap:18px;margin-top:14px}
+  .home-top .poster{width:min(100%,230px);margin:0 auto}
+  .panel{width:100%;min-width:0;padding:12px 14px 18px}
+  .about-carousel{grid-template-columns:28px minmax(0,1fr) 28px;gap:4px}
+  .about-carousel h2{margin:12px 0 4px;font-size:1.2rem}
+  .about-arrow{width:28px;height:34px;margin-top:12px}
+  .about{padding-top:12px;font-size:.95rem;line-height:1.5}
+  .panel #chooseSeason{margin-top:20px;padding-top:0}
+  .panel .sub{font-size:.92rem;margin-bottom:12px}
+  .panel .floors{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:none;min-width:0}
+  .panel .floor{min-width:0;padding:12px 8px}
+  .panel .floor .num{width:42px;height:42px;font-size:1.2rem}
+  .panel .floor .nm{font-size:.95rem}
+  .panel .floor .ct{font-size:.8rem}
+  .hall{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}
+  .door .leaf{aspect-ratio:4/5;border-radius:44px 44px 6px 6px}
+  .door .name{margin-top:8px;font-size:.92rem}
+  .b{font-size:.72rem;padding:0 7px}
+  .room{margin-top:22px;font-size:.9rem}
+  .ep-title{font-size:clamp(1.35rem,6vw,1.9rem);margin:6px 0 16px;overflow-wrap:anywhere}
+  .hosting-notice{margin:0 auto 16px;padding:10px 12px;font-size:.85rem}
+  .lang{flex-wrap:wrap;gap:8px}
+  .lang button{flex:1 1 140px;min-height:44px;padding:8px 10px}
+  .screen{border-width:2px;border-radius:6px}
+  .nav{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"back back" "prev next";gap:8px}
+  .nav #prev{grid-area:prev}
+  .nav #next{grid-area:next}
+  .nav .key{grid-area:back;white-space:normal}
+  .nav>*{width:100%;min-width:0;padding:9px 10px;text-align:center;font-size:.9rem}
+  .syn{margin:26px auto 0;font-size:.95rem}
+  .back{margin-top:18px}
+  .back .key{max-width:100%;justify-content:center;text-align:center}
+  footer{margin-top:20px;padding:18px 16px 28px;font-size:.8rem}
+  .deco{opacity:.55}
+  .web-l,.web-r{top:-10px;width:clamp(72px,23vw,120px)}
+}
+@media(max-width:380px){
+  header,main,footer{padding-right:12px;padding-left:12px}
+  .panel{padding-right:10px;padding-left:10px}
+  .panel .floor .nm{font-size:.88rem}
+  .hall{gap:14px 10px}
+  .door .name{font-size:.85rem}
+}
+</style>
+</head>
+<body>
+<canvas id="dust" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="hhWeb" viewBox="0 0 160 160" fill="none" stroke="#eadfca">
+    <path d="M0 0L150 0M0 0L145 39M0 0L130 75M0 0L106 106M0 0L75 130M0 0L39 145M0 0L0 150" stroke-opacity=".4" stroke-width="1"/>
+    <path d="M30 0Q26 3 29 8M29 8Q24 10 26 15M26 15Q20 16 21 21M21 21Q16 20 15 26M15 26Q10 24 8 29M8 29Q3 26 0 30M58 0Q49 7 56 15M56 15Q46 19 50 29M50 29Q40 30 41 41M41 41Q30 40 29 50M29 50Q19 46 15 56M15 56Q7 49 0 58M86 0Q73 10 83 22M83 22Q68 28 74 43M74 43Q59 45 61 61M61 61Q45 59 43 74M43 74Q28 68 22 83M22 83Q10 73 0 86M114 0Q97 13 110 30M110 30Q91 38 99 57M99 57Q78 60 81 81M81 81Q60 78 57 99M57 99Q38 91 30 110M30 110Q13 97 0 114M142 0Q121 16 137 37M137 37Q113 47 123 71M123 71Q97 74 100 100M100 100Q74 97 71 123M71 123Q47 113 37 137M37 137Q16 121 0 142" stroke-opacity=".3" stroke-width=".8"/>
+  </symbol>
+</svg>
+<svg class="deco web-l" viewBox="0 0 160 160" focusable="false"><use href="#hhWeb"/>
+  <rect class="spider-hit-area" x="42" y="32" width="60" height="60" fill="transparent"/>
+  <g class="spider"><path d="M72 0V58" stroke="#eadfca" stroke-opacity=".5" stroke-width=".8"/><circle cx="72" cy="62" r="4" fill="#2a1a20" stroke="#8a7440" stroke-width=".6"/><circle cx="72" cy="57.5" r="2.4" fill="#2a1a20" stroke="#8a7440" stroke-width=".6"/><path d="M68 60l-6-4M68 62l-7 1M68 64l-6 5M76 60l6-4M76 62l7 1M76 64l6 5" stroke="#8a7440" stroke-width="1" stroke-linecap="round"/></g>
+</svg>
+<div class="jarbon-tip" id="jarbonTip" role="tooltip" aria-hidden="true">Esse é o Jarbon!</div>
+<svg class="deco web-r" viewBox="0 0 160 160" aria-hidden="true" focusable="false"><use href="#hhWeb"/></svg>
+
+<header>
+  <a class="logo" href="#" aria-label="Haunted Hotel, voltar ao início"><img src="logo.webp" alt="Haunted Hotel" width="596" height="459" draggable="false"></a>
+  <p class="tag">Assista seus episódios favoritos de Haunted Hotel, no Haunted Lobby! Dublados e legendados.</p>
+</header>
+
+<main>
+  <section id="home">
+    <div class="home-top">
+      <figure class="poster">
+        <img id="posterImg" src="poster.webp" alt="Pôster de Haunted Hotel" draggable="false">
+        <figcaption id="posterCredit"></figcaption>
+      </figure>
+      <div class="panel">
+        <div class="about-carousel" aria-label="Informações sobre a série e o site">
+          <button class="about-arrow" id="aboutPrev" type="button" aria-label="Mostrar página anterior">‹</button>
+          <section aria-live="polite">
+            <h2 id="aboutTitle">Sobre a série</h2>
+            <div class="about" id="about"></div>
+          </section>
+          <button class="about-arrow" id="aboutNext" type="button" aria-label="Mostrar próxima página">›</button>
+        </div>
+        <h2 id="chooseSeason">Escolha o andar</h2>
+        <p class="sub">Qual temporada você quer visitar?</p>
+        <ul class="floors" id="floors"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="hall">
+    <h2 id="hallTitle"></h2>
+    <p class="sub">Escolha uma porta para abrir o trailer do episódio.</p>
+    <ul class="hall" id="doors"></ul>
+    <div class="back"><a class="key" href="#">🗝️ Voltar ao saguão principal</a></div>
+  </section>
+
+  <article id="ep" aria-live="polite">
+    <p class="room" id="room"></p>
+    <h1 class="ep-title" id="title"></h1>
+    <aside class="hosting-notice" role="note">
+      A hospedagem dos episódios é feita por players de terceiros. O Haunted Lobby não é responsável por esses serviços e não recebe lucro com a exibição. Se o episódio não abrir, tente novamente.
+    </aside>
+    <div class="lang" role="group" aria-label="Idioma do trailer">
+      <button id="bDub" type="button">Dublado</button>
+      <button id="bSub" type="button" disabled>Legendado (em breve)</button>
+    </div>
+    <div class="screen" id="screen"></div>
+    <nav class="nav" aria-label="Navegar entre episódios">
+      <button id="prev" type="button">← Quarto anterior</button>
+      <a class="key" id="backEp" href="#">🗝️ Devolver a chave</a>
+      <button id="next" type="button">Próximo quarto →</button>
+    </nav>
+    <div class="syn">
+      <h3>Sinopse</h3>
+      <div id="syn"></div>
+    </div>
+  </article>
+</main>
+
+<footer>
+  Site de fã para fãs, sem fins lucrativos e sem afiliação com a Netflix, os criadores ou os produtores de Haunted Hotel.
+  Os episódios pertencem aos seus donos e são exibidos pelos players das fontes vinculadas.
+</footer>
+
+<script>
+  
+const SERIES_SYNOPSIS = `Após herdar o misterioso Hotel Undervale de seu irmão, Katherine se muda para o local com seus dois filhos em busca de um recomeço. Porém, o hotel está longe de ser comum: seus corredores abrigam hóspedes sobrenaturais e criaturas peculiares que não parecem dispostas a partir.
+
+Entre espíritos, mistérios e situações inesperadas, Katherine precisa administrar o estabelecimento enquanto cuida da família e tenta lidar com o caos de seu novo lar.`;
+const LOBBY_ABOUT = `O Haunted Lobby é um projeto de fã, sem fins lucrativos, feito para facilitar a navegação pelos episódios de Haunted Hotel. O site não hospeda os episódios: eles são exibidos por players externos, vinculados às fontes correspondentes. O projeto não tem afiliação com a Netflix, os criadores ou os produtores da série.`;
+const POSTER_CREDIT = "Arte oficial: Netflix";
+const SEASONS = [
+  { title:"Temporada 1", episodes:[
+    { room:"101", title:"Bem-vindos ao Undervale", sub:"", dub:"https://n1mwq.org/e/ojuqvfgucb4v",
+      synopsis:"Katherine e os filhos chegam ao hotel que herdaram e descobrem que seus corredores já têm moradores fantasmagóricos. Uma tentativa de expulsá-los com ajuda de uma exorcista acaba desencadeando novos eventos sobrenaturais." },
+    { room:"102", title:"Assuntos Inacabados", sub:"", dub:"https://n1mwq.org/e/lehs2qpswzzj",
+      synopsis:"A família tenta ajudar os espíritos do hotel a resolver pendências do passado, mas algumas histórias se mostram mais difíceis de encerrar do que o esperado." },
+    { room:"103", title:"Randy, o Assassino", sub:"", dub:"https://n1mwq.org/e/gbgxqf1chkew",
+      synopsis:"A chegada de um fantasma assassino, com jeito de vilão dos slashers dos anos 80, transforma o hotel num cenário de terror e põe a família em perigo." },
+    { room:"104", title:"Como Treinar Seu Demônio", sub:"", dub:"https://n1mwq.org/e/8dk9u2yaju0g",
+      synopsis:"Abaddon, um demônio antigo preso no corpo de um garoto, entra na rotina do hotel e provoca atritos entre os humanos e seus habitantes sobrenaturais." },
+    { room:"105", title:"Rollyfluffs", sub:"", dub:"https://n1mwq.org/e/a93m6fubrxvx",
+      synopsis:"Criaturas pequenas e aparentemente fofas aparecem no hotel. A descoberta logo vira uma confusão quando fica claro que elas não são tão inofensivas." },
+    { room:"106", title:"Caçadores de Fantasmas!", sub:"", dub:"https://n1mwq.org/e/o3ub6ebxlk65",
+      synopsis:"Uma equipe de investigadores paranormais chega ao Undervale para gravar seu programa. A família tenta esconder os fantasmas e preservar o segredo do hotel." },
+    { room:"107", title:"Os Sete Bens", sub:"", dub:"https://n1mwq.org/e/9h9208q91eq4",
+      synopsis:"Ben enfrenta uma situação sobrenatural que evidencia diferentes lados de sua personalidade e vira sua rotina de cabeça para baixo." },
+    { room:"108", title:"Tia Rose", sub:"", dub:"https://n1mwq.org/e/eko2elou7cpx",
+      synopsis:"A visita de um novo fantasma da família reabre lembranças e desavenças antigas, mexendo com as relações entre os moradores do hotel." },
+    { room:"109", title:"A Exorcista Esther", sub:"", dub:"https://n1mwq.org/e/toe0wsn6yhvn",
+      synopsis:"Esther assume um papel inesperado diante de uma ameaça sobrenatural e enfrenta o problema à sua maneira pouco convencional." },
+    { room:"110", title:"Os Seguidores de Abaddon", sub:"", dub:"https://n1mwq.org/e/c6mwqru7qzs8",
+      synopsis:"O passado de Abaddon e seus seguidores vem à tona, levando a família a enfrentar um confronto perigoso no final da temporada." }
+  ]},
+  { title:"Temporada 2", episodes:[
+    { room:"201", title:"Lodo", sub:"", dub:"https://n1mwq.org/e/z4efly6br0zw",
+      synopsis:"Com o aumento da movimentação no Hotel Undervale, Katherine percebe que chegou a hora de reforçar a equipe. A busca por novos funcionários, porém, pode se revelar muito mais perigosa do que ela imaginava." },
+    { room:"202", title:"Jantar em Grupo", sub:"", dub:"https://n1mwq.org/e/652bx4hfg0dz",
+      synopsis:"Ben prepara uma ocasião bastante peculiar para Annabelle, enquanto Katherine precisa lidar com uma surpresa nada agradável. Paralelamente, Esther e Abaddon enfrentam situações que colocam sua amizade à prova." },
+    { room:"203", title:"A Bruxa", sub:"", dub:"https://n1mwq.org/e/8vhjc9fj641a",
+      synopsis:"Uma visita inesperada leva Katherine e seus filhos a ajudarem uma bruxa que precisa de atenção. Enquanto isso, Nathan enfrenta dificuldades para compartilhar suas experiências após a morte, e Abaddon se aventura na preparação de algo nada convencional." },
+    { room:"204", title:"A Folga dos Fantasmas", sub:"", dub:"https://n1mwq.org/e/d9slke2jtsil",
+      synopsis:"Uma rara oportunidade permite que os fantasmas deixem o hotel e explorem o mundo durante uma noite especial. Para Nathan, a ocasião reserva descobertas inesperadas, enquanto Katherine precisa lidar com um Abaddon surpreendentemente comportado." },
+    { room:"205", title:"Esther Astral", sub:"", dub:"https://n1mwq.org/e/xdo4hvawuy6f",
+      synopsis:"Um acidente envolvendo projeção astral coloca Esther em uma situação complicada, provocando uma série de acontecimentos inesperados que acabam afetando sua rotina dentro e fora do hotel." },
+    { room:"206", title:"Dante Crowe", sub:"", dub:"https://n1mwq.org/e/7lau6ivc7bro",
+      synopsis:"A chegada de Dante Crowe, um investigador especializado em fenômenos sobrenaturais, promete trazer novas perspectivas aos mistérios do Undervale. Mas lidar com os habitantes do hotel pode ser um desafio até para alguém com sua experiência." },
+    { room:"207", title:"O Concierge", sub:"", dub:"https://n1mwq.org/e/w8q0qpjhwtl3",
+      synopsis:"Manter a organização de um hotel repleto de hóspedes sobrenaturais não é uma tarefa simples. Depois de tantas responsabilidades e situações incomuns, o concierge precisa finalmente encontrar uma oportunidade para descansar." },
+    { room:"208", title:"A Visita", sub:"", dub:"https://n1mwq.org/e/l7z3xydj7yde",
+      synopsis:"Com o futuro do Hotel Undervale em jogo, a família precisa enfrentar novos obstáculos enquanto antigos acontecimentos vêm à tona. Entre revelações e momentos de união, todos terão de descobrir o que realmente importa para salvar o lugar que chamam de lar." }
+  ]}
+];
+
+const $ = id => document.getElementById(id);
+const spiderArea = document.querySelector(".spider-hit-area");
+const jarbonTip = $("jarbonTip");
+function positionJarbonTip(x,y){
+  const gap = 12;
+  const left = Math.max(8,Math.min(x+gap,innerWidth-jarbonTip.offsetWidth-8));
+  const top = Math.max(8,y-jarbonTip.offsetHeight-gap);
+  jarbonTip.style.left = `${left}px`;
+  jarbonTip.style.top = `${top}px`;
+}
+function showJarbonTip(x,y){
+  jarbonTip.classList.add("visible");
+  jarbonTip.setAttribute("aria-hidden","false");
+  positionJarbonTip(x,y);
+}
+function hideJarbonTip(){
+  jarbonTip.classList.remove("visible");
+  jarbonTip.setAttribute("aria-hidden","true");
+}
+spiderArea.addEventListener("pointerenter",event=>showJarbonTip(event.clientX,event.clientY));
+spiderArea.addEventListener("pointermove",event=>positionJarbonTip(event.clientX,event.clientY));
+spiderArea.addEventListener("pointerleave",hideJarbonTip);
+document.addEventListener("dragstart", event => {
+  if(event.target instanceof HTMLImageElement) event.preventDefault();
+});
+document.addEventListener("contextmenu", event => {
+  if(event.target instanceof HTMLImageElement) event.preventDefault();
+});
+let lang = "sub";
+try { lang = localStorage.getItem("hh-lang") === "dub" ? "dub" : "sub"; } catch(e){}
+
+function hotelArt(){
+  let w="";
+  for(let r=0;r<4;r++)for(let c=0;c<5;c++){
+    const lit=(r*5+c)%3!==0;
+    w+=`<rect x="${112+c*38}" y="${112+r*24}" width="16" height="14" fill="${lit?"#f3dd9b":"#1a0a14"}" opacity="${lit?.85:1}"/>`;
+  }
+  return `<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a0a14"/><stop offset="1" stop-color="#3b0f1c"/></linearGradient></defs><rect width="400" height="240" fill="url(#sk)"/><circle cx="335" cy="48" r="22" fill="#eadfca" opacity=".85"/><path d="M90 240V100L200 40L310 100V240Z" fill="#0c0709" stroke="#7d6330" stroke-width="2"/><rect x="170" y="66" width="60" height="22" rx="3" fill="#220a12" stroke="#ff5f86"/><text x="200" y="82" text-anchor="middle" font-family="Cinzel,serif" font-size="13" fill="#ff5f86">HOTEL</text>${w}<path d="M186 240v-26a14 14 0 0 1 28 0v26z" fill="#3b0f1c" stroke="#c8a45a"/></svg>`;
+}
+(function(){
+  const img=$("posterImg");
+  const fb=()=>{ if(!img.isConnected) return; const d=document.createElement("div"); d.className="art"; d.setAttribute("role","img"); d.setAttribute("aria-label","Ilustração de um hotel assombrado"); d.innerHTML=hotelArt(); img.replaceWith(d); };
+  img.addEventListener("error",fb);
+  if(img.complete && img.naturalWidth===0) fb();
+  $("posterCredit").textContent = POSTER_CREDIT;
+})();
+
+let aboutPage = 0;
+function renderAbout(){
+  const isSeries = aboutPage === 0;
+  $("aboutTitle").textContent = isSeries ? "Sobre a série" : "Sobre o Haunted Lobby";
+  $("about").replaceChildren();
+  (isSeries ? SERIES_SYNOPSIS : LOBBY_ABOUT).split(/\n\s*\n/).forEach(t => {
+    const p=document.createElement("p");
+    p.textContent=t.trim();
+    $("about").appendChild(p);
+  });
+  $("aboutPrev").disabled = isSeries;
+  $("aboutNext").disabled = !isSeries;
+}
+$("aboutPrev").addEventListener("click", () => { aboutPage = 0; renderAbout(); });
+$("aboutNext").addEventListener("click", () => { aboutPage = 1; renderAbout(); });
+renderAbout();
+
+$("floors").innerHTML = SEASONS.map((s,i)=>{
+  const n=s.episodes.length;
+  const inner=`<span class="num">${i+1}</span><span class="nm">${s.title}</span><span class="ct">${s.locked ? "Em breve" : n ? n+(n>1?" episódios":" episódio") : "Em breve"}</span>`;
+  return n && !s.locked ? `<li><a class="floor" href="#t${i+1}">${inner}</a></li>` : `<li><div class="floor off" aria-disabled="true">${inner}</div></li>`;
+}).join("");
+
+function renderHall(si){
+  const s=SEASONS[si-1];
+  $("hallTitle").textContent=s.title;
+  $("doors").innerHTML = s.episodes.map((e,i)=>`
+    <li><a class="door" href="#t${si}-e${i+1}" aria-label="Quarto ${e.room}: ${e.title}">
+      <div class="leaf"><span class="plate">${e.room}</span><span class="knob"></span></div>
+      <span class="name">${e.title}</span>
+      <span class="badges"><span class="b ${e.dub?"":"off"}">dub</span><span class="b ${e.sub?"":"off"}">leg</span></span>
+    </a></li>`).join("");
+}
+
+function player(source){
+  const s = $("screen");
+  s.replaceChildren();
+  if(!source){
+    s.innerHTML = '<div class="empty">Este trailer ainda não está disponível nesta versão. Volte em breve!</div>';
+    return;
+  }
+  let url;
+  if(/^[\w-]{11}$/.test(source)){
+    url = new URL(`https://www.youtube-nocookie.com/embed/${encodeURIComponent(source)}?rel=0`);
+  }else{
+    try { url = new URL(source); }
+    catch(e){
+      s.innerHTML = '<div class="empty">O endereço deste trailer é inválido.</div>';
+      return;
+    }
+    if(url.protocol !== "https:"){
+      s.innerHTML = '<div class="empty">O trailer precisa usar um endereço HTTPS seguro.</div>';
+      return;
+    }
+  }
+  const frame = document.createElement("iframe");
+  frame.src = url.href;
+  frame.title = "Trailer";
+  frame.allow = "accelerometer; encrypted-media; picture-in-picture; fullscreen";
+  frame.loading = "lazy";
+  frame.referrerPolicy = "strict-origin-when-cross-origin";
+  s.appendChild(frame);
+}
+
+function setLang(l, ep){
+  lang = l;
+  try { localStorage.setItem("hh-lang", l); } catch(e){}
+  $("bSub").setAttribute("aria-pressed", l==="sub");
+  $("bDub").setAttribute("aria-pressed", l==="dub");
+  player(ep[l]);
+}
+
+const BASE_TITLE = "Haunted Hotel – Todos os episódios online";
+function show(){
+  const m = location.hash.match(/^#t(\d+)(?:-e(\d+))?$/);
+  const si = m ? +m[1] : 0, ei = m && m[2] ? +m[2] : 0;
+  const season = SEASONS[si-1];
+  const ep = season && !season.locked && ei ? season.episodes[ei-1] : null;
+  const view = ep ? "ep" : (season && !season.locked && !ei && season.episodes.length ? "hall" : "home");
+  document.body.classList.toggle("watching", view==="ep");
+  $("home").style.display = view==="home" ? "block" : "none";
+  $("hall").style.display = view==="hall" ? "block" : "none";
+  $("ep").style.display   = view==="ep"   ? "block" : "none";
+  window.scrollTo(0,0);
+  if(view!=="ep") $("screen").innerHTML="";
+  if(view==="home"){ document.title=BASE_TITLE; return; }
+  if(view==="hall"){ renderHall(si); document.title=`${season.title} – Haunted Hotel`; return; }
+
+  document.title = `${ep.title} – Haunted Hotel`;
+  $("room").textContent = `${season.title} · Quarto ${ep.room}`;
+  $("title").textContent = ep.title;
+  $("syn").innerHTML = "";
+  ep.synopsis.split(/\n\s*\n/).forEach(t => { const p=document.createElement("p"); p.textContent=t.trim(); $("syn").appendChild(p); });
+
+  $("bSub").disabled = !ep.sub; $("bDub").disabled = !ep.dub;
+  const use = ep[lang] ? lang : (ep.sub ? "sub" : ep.dub ? "dub" : lang);
+  setLang(use, ep);
+  $("bSub").onclick = () => setLang("sub", ep);
+  $("bDub").onclick = () => setLang("dub", ep);
+
+  $("prev").disabled = ei <= 1;
+  $("next").disabled = ei >= season.episodes.length;
+  $("prev").onclick = () => location.hash = `#t${si}-e${ei-1}`;
+  $("next").onclick = () => location.hash = `#t${si}-e${ei+1}`;
+  $("backEp").href = `#t${si}`;
+}
+addEventListener("hashchange", show);
+show();
+
+(function(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const c=$("dust"), x=c.getContext("2d"); let w,h,lastFrame=0,animationFrame=0;
+  const P=Array.from({length:30},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.6+.4,s:Math.random()*.15+.03,d:Math.random()*6}));
+  function size(){w=c.width=innerWidth;h=c.height=innerHeight}
+  function start(){
+    if(!animationFrame){lastFrame=0;animationFrame=requestAnimationFrame(loop)}
+  }
+  function stop(){
+    cancelAnimationFrame(animationFrame);
+    animationFrame=0;
+  }
+  function loop(t){
+    if(document.hidden){animationFrame=0;return}
+    animationFrame=requestAnimationFrame(loop);
+    if(t-lastFrame<1000/30) return;
+    const frameScale=lastFrame?Math.min((t-lastFrame)/(1000/60),3):1;
+    lastFrame=t;
+    x.clearRect(0,0,w,h);
+    for(const p of P){
+      p.y-=p.s/h*5*frameScale; if(p.y<-.02){p.y=1.02;p.x=Math.random()}
+      const px=(p.x+Math.sin(t/3000+p.d)*.01)*w;
+      x.beginPath();x.arc(px,p.y*h,p.r,0,7);x.fillStyle=`rgba(234,223,202,${.15+.2*Math.abs(Math.sin(t/2000+p.d))})`;x.fill();
+    }
+  }
+  addEventListener("resize",size); size();
+  document.addEventListener("visibilitychange",()=>document.hidden?stop():start());
+  start();
+})();
+</script>
+</body>
+</html>
